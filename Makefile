@@ -37,8 +37,7 @@ $(kernel): kernel $(rust_os) $(assembly_object_files) $(linker_script)
 	ld -n --gc-sections -T $(linker_script) -o $(kernel) $(assembly_object_files) $(rust_os)
 
 kernel:
-	export XBUILD_SYSROOT_PATH="$(shell pwd)/target/sysroot"; 
-	cargo xbuild --target amd64-os.json
+	cargo +nightly build --target amd64-os.json
 
 # compile assembly files
 build/arch/$(arch)/%.o: src/arch/$(arch)/%.asm
