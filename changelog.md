@@ -1,0 +1,7 @@
+ - Imported the linked_list_allocator crate as the primary kernel heap allocator.
+ - Adapted an Offset Page Table mapping with associated functionality from Opperman's project.
+ - Set up interrupt stack switching.
+ - Adapted a GDT structure with associated functionality from Opperman's project.
+ - Used the language feature "x86-interrupt-abi" to create boilerplate IDT handlers, for use in later components.
+ - Adapted an IDT structure with associated functionality from Opperman's project.
+ - Imported bootloader and test harness boilerplate from Phillip Opperman's blog-os project (MIT License).
