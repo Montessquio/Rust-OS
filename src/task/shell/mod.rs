@@ -9,6 +9,7 @@ use alloc::string::String;
 use super::keyboard::{ScancodeStream};
 
 mod util;
+mod fs;
 
 /// The Kernel Shell takes full control of the serial keyboard driver.
 /// 
@@ -30,6 +31,9 @@ pub async fn ksh_main() {
             "echo" => util::echo(s),
             "echoparam" => util::echoparam(s),
             "fizz" | "fizzbuzz" => util::fizzbuzz(s),
+            "ls" | "dir" => fs::ls(s),
+            "run" | "exec" => fs::run(s),
+            "print" | "show" => fs::print(s),
             "help" => util::help(),
             _ => println!("Unknown command. Type 'help' for a list of commands."),
         }
@@ -77,35 +81,3 @@ async fn getchar(scancodes: &mut ScancodeStream, keyboard: &mut Keyboard<layouts
         }
     }
 }
-/*
-/// Prompt the user for a line of input, returning
-/// a vector of the input characters.
-pub async fn prompt(scancodes: &ScancodeStream, kbd: &Keyboard<layouts::Us104Key, ScancodeSet1>) -> VecDeque<char> {
-    print!("\n$ ");
-
-    let mut out: VecDeque<char> = VecDeque::with_capacity(160);
-    // Await for key input...
-    while let Some(key) =  {
-        // Process only printable characters.
-        match key {
-            DecodedKey::Unicode(character) => if character == '\n' {
-                // Print Newline and break.
-                print!("\n");
-                break;
-            } else {
-                // Any other character means we need to add it to the
-                // output vec.
-                print!("{}", character);
-                out.push_back(character);
-            },
-            // Handle backspaces specifically.
-            DecodedKey::RawKey(key) => if key == KeyCode::Backspace {
-                print!("{}", 0x08);
-                out.pop_back(); // Remove the last character pushed.
-            },
-        };
-    }
-
-    out
-}
-*/

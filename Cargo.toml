@@ -12,6 +12,9 @@ harness = false
 name = "stack_overflow"
 harness = false
 
+[build-dependencies]
+#serde = { version = "^1.0", default-features = true }
+
 [dependencies]
 bootloader = {version = "0.9.8", features = ["map_physical_memory"]}
 volatile = "0.2.6"
@@ -20,7 +23,9 @@ x86_64 = "0.14.5"
 uart_16550 = "0.2.0"
 bit_field = "0.10.1"
 bitflags = "1.0.4"
+byteorder = { version = "^1.4.3", default-features = false }
 linked_list_allocator = "0.9.0"
+tar-no-std = { version = "0.1.6", features = ["alloc"] }
 
 [dependencies.crossbeam-queue]
 version = "0.2.1"
@@ -50,6 +55,12 @@ default-features = false
 #features = ["alloc"]
 
 [package.metadata.bootimage]
+
+# The command invoked with the created bootimage (the "{}" will be replaced
+# with the path to the bootable disk image)
+# Applies to `bootimage run` and `bootimage runner`
+run-command = ["qemu-system-x86_64", "-m", "6G", "-drive", "format=raw,file={}"]
+
 test-args = [
     "-device", "isa-debug-exit,iobase=0xf4,iosize=0x04", "-serial", "stdio",
     "-display", "none"

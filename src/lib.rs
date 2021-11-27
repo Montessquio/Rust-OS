@@ -8,6 +8,7 @@
     const_mut_refs,
     const_fn_trait_bound,
     alloc_error_handler,
+    exact_size_is_empty,
 )]
 #![test_runner(crate::test_runner)]
 #![reexport_test_harness_main = "test_main"]
@@ -28,6 +29,7 @@ pub mod interrupts;
 pub mod segmentation;
 pub mod memory;
 pub mod task;
+pub mod initrd;
 
 /// Universal kernel initialization code.
 /// Separated into its own function so it may

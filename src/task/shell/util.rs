@@ -11,7 +11,11 @@ pub fn help() {
                             Display given arguments in debug format.
     fizzbuzz <u32>:         Shell demo routine. 
                             Performs the fizzbuzz challenge with the
-                            given number of iterations."#);
+                            given number of iterations.
+    ls  <path>:             List directories and files in the initramfs.
+    exec <path>:            Run executables in the initramfs.
+    print [-a] <path>:      Print the hex values of files in the initramfs.
+                            The -a flag prints the files as ASCII."#);
 }
 
 pub fn echo(mut argv: Vec<&str>) {
