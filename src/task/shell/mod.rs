@@ -1,9 +1,8 @@
 //! A kernel shell implementation.
 
 use crate::{print, println};
-use crate::interrupts::serialkbd::{layouts, DecodedKey, HandleControl, Keyboard, ScancodeSet1, KeyCode};
+use crate::interrupts::serialkbd::{layouts, DecodedKey, HandleControl, Keyboard, ScancodeSet1};
 use futures_util::StreamExt;
-use alloc::collections::VecDeque;
 use alloc::vec::Vec;
 use alloc::string::String;
 use super::keyboard::{ScancodeStream};

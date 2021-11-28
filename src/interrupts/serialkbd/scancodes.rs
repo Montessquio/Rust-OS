@@ -4,7 +4,7 @@ use super::{
 };
 
 /// Contains the implementation of Scancode Set 1.
-/// See the OS dev wiki: https://wiki.osdev.org/PS/2_Keyboard#Scan_Code_Set_1
+/// See the OS dev wiki: <https://wiki.osdev.org/PS/2_Keyboard#Scan_Code_Set_1>
 pub struct ScancodeSet1;
 
 impl ScancodeSet for ScancodeSet1 {
@@ -242,7 +242,7 @@ impl ScancodeSet for ScancodeSet1 {
 }
 
 /// Contains the implementation of Scancode Set 2.
-/// See the OS dev wiki: https://wiki.osdev.org/PS/2_Keyboard#Scan_Code_Set_2
+/// See the OS dev wiki: <https://wiki.osdev.org/PS/2_Keyboard#Scan_Code_Set_2>
 pub struct ScancodeSet2;
 
 impl ScancodeSet for ScancodeSet2 {

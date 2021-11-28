@@ -2,7 +2,7 @@
 //! physical memory is entirely mapped at some
 //! virtual offset.
 
-use x86_64::{PhysAddr, VirtAddr};
+use x86_64::VirtAddr;
 use x86_64::structures::paging::{
     frame::PhysFrame, mapper::*, page::PageRangeInclusive, page_table::PageTable, FrameDeallocator,
     Page, PageTableFlags, Size1GiB, Size2MiB, Size4KiB, FrameAllocator

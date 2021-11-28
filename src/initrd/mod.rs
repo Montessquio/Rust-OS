@@ -1,8 +1,7 @@
 //! This file contains the initrd system that
 //! loads extra drivers necessary for boot, such as
 //! file system and hard drive drivers.
-
-use core::convert::TryInto;
+//! 
 use lazy_static::lazy_static;
 use alloc::{borrow::ToOwned, string::String, collections::BTreeMap, string::ToString};
 
@@ -18,7 +17,6 @@ pub struct USTAR {
 
 impl USTAR {
     pub fn new(buf: &'static [u8]) -> Self {
-        let buf_iter = buf.iter();
         let mut headers: BTreeMap<String, USTARHeader> = alloc::collections::BTreeMap::new();
         let mut skip = 0;
 

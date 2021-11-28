@@ -1,13 +1,8 @@
 use conquer_once::spin::OnceCell;
 use crossbeam_queue::ArrayQueue;
-use core::{pin::Pin, sync::atomic::Ordering, task::{Poll, Context}};
-use core::sync::atomic::AtomicBool;
-use core::marker::Sync;
+use core::{pin::Pin, task::{Poll, Context}};
 use futures_util::stream::Stream;
 use futures_util::task::AtomicWaker;
-use futures_util::stream::StreamExt;
-use lazy_static::lazy_static;
-use crate::interrupts::serialkbd::{layouts, DecodedKey, HandleControl, Keyboard, ScancodeSet1};
 use crate::println;
 
 

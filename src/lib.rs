@@ -4,12 +4,12 @@
     custom_test_frameworks,
     abi_x86_interrupt,
     const_fn_fn_ptr_basics,
-    const_panic,
     const_mut_refs,
     const_fn_trait_bound,
     alloc_error_handler,
     exact_size_is_empty,
 )]
+#![allow(dead_code)]
 #![test_runner(crate::test_runner)]
 #![reexport_test_harness_main = "test_main"]
 

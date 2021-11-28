@@ -39,7 +39,7 @@ pub fn echoparam(mut argv: Vec<&str>) {
     }
 }
 
-pub fn fizzbuzz(mut argv: Vec<&str>) {
+pub fn fizzbuzz(argv: Vec<&str>) {
     if let Some(asciinum) = argv.get(1) {
         if let Ok(n) = asciinum.parse::<u32>() {
             for i in 1..n {

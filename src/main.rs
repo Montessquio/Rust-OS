@@ -4,30 +4,24 @@
     custom_test_frameworks,
     abi_x86_interrupt,
     const_fn_fn_ptr_basics,
-    const_panic,
     const_mut_refs,
     const_fn_trait_bound,
     async_closure,
     exact_size_is_empty,
 )]
+#![allow(dead_code)]
 #![test_runner(rust_os::test_runner)]
 #![reexport_test_harness_main = "test_main"]
 
 extern crate alloc;
 
-use futures_util::Future;
-use lazy_static::__Deref;
 use rust_os::{println, printsln};
 use rust_os::memory;
 use rust_os::task::executor::Executor;
 use rust_os::task::Task;
-use core::future;
 use core::panic::PanicInfo;
 use bootloader::{BootInfo, entry_point};
-use x86_64::{VirtAddr, PhysAddr};
-use x86_64::structures::paging::Translate;
-use rust_os::initrd;
-use alloc::borrow::ToOwned;
+use x86_64::VirtAddr;
 
 entry_point!(kmain);
 

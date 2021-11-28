@@ -211,7 +211,8 @@ impl<F> Entry<F> {
         self.ptr_md = (addr >> 16) as u16;
         self.ptr_hi = (addr >> 32) as u32;
 
-        self.gdt_selector = x86_64::instructions::segmentation::cs().0;
+        use x86_64::instructions::segmentation::Segment;
+        self.gdt_selector = x86_64::instructions::segmentation::CS::get_reg().0;
 
         self.options.set_present(true);
         &mut self.options

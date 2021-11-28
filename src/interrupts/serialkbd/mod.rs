@@ -8,8 +8,6 @@
 //! difficult, and it means you have to make this object a global static mut
 //! that the interrupt can access, which is unsafe.
 
-#![cfg_attr(not(test), no_std)]
-
 // ****************************************************************************
 //
 // Imports
